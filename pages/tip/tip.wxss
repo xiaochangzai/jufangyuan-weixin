@@ -1,0 +1,37 @@
+/* pages/tip/tip.wxss */
+.wrap{	
+	min-height: 100vh;
+	width: 100vw;
+	display: block;
+	background-color: #ffd845;
+  padding-top: 6vw;
+}
+.wrap .inner-box{
+  width: 88.5vw;
+  background-color: #ffffff;
+  border-radius: 2vw;
+  margin: 0 auto;
+  padding: 0 3vw;
+  padding-top: 1vw;
+  padding-bottom: 11vw;
+
+}
+.title{
+  line-height: 12vw;
+  height: 12vw;
+  font-size: 4.5vw;
+  font-weight: bold;
+}
+.content{
+  line-height: 7.4vw;
+  font-size: 3.5vw;
+}
+.help{
+  width: 44.7vw;
+  height: 9vw;
+  border-radius: 4.5vw;
+  display: block;
+  margin: 0 auto;
+  margin-top: 2vw;
+  font-size: 3.5vw;
+}

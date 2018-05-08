@@ -1,0 +1,150 @@
+/* pages/report/report.wxss */
+.wrap{
+  min-height: 100vh;
+}
+.header{
+  height: 81.6vw;
+  background-color: #fed943;
+  box-sizing: border-box;
+  padding-top: 24.5vw;
+}
+.title{
+  font-size: 16px;
+  text-align: center;
+  display: block;
+}
+.score-box{
+  width: 31.8vw;
+  height: 31.8vw;
+  box-sizing: border-box;
+  border-radius: 50%;
+  border: #ffffff 0.2vw solid;
+  margin: 0 auto;
+  overflow: hidden;
+  position: relative;
+  margin-top: 6.4vw;
+}
+.score-box text{
+  width: 31.8vw;
+  height: 31.8vw;
+  text-align: center;
+  line-height: 31.8vw;
+  font-size: 7.7vw;
+  position: absolute;
+  top: 0;
+  left: 0; 
+  color: #3d2f0b;
+  z-index: 3;
+}
+.score-box .water{
+  width: 31.8vw;
+  height: 15vw;
+  background-color: rgba(255, 255, 255, 0.5);
+  transition: all 1s ease-in-out;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: 2;
+}
+.menu{
+  height: 14.8vw;
+  box-sizing: border-box;
+  padding: 6.6vw 0vw 0 10vw;
+}
+.menu .menu-item{
+  width: 30vw;
+  height: 8vw;
+  float: left;
+}
+.menu .menu-item image{
+  width: 3.2vw;
+  height: 3.9vw;
+  display: block;
+  float: left;
+}
+.menu .menu-item navigator{
+  width: 26vw;
+  height: 7.2vw;
+  display: block;
+  color: #151b37;
+  font-size: 3.6vw;
+  box-sizing: border-box;
+  padding-left: 1.7vw;
+  float: left;
+}
+.red{
+  color: #f10000;
+}
+
+.cord-list{
+  box-sizing: border-box;
+  padding: 0 4vw;
+
+}
+.cord-list .cord-item{
+  height: 20.7vw;
+  box-sizing: border-box;
+  padding-top: 7.2vw;
+  border-bottom: #c5c5c5 0.2vw solid;
+}
+.cord-list .cord-item .index{
+  width: 4.6vw;
+  height: 4.6vw;
+  float: left;
+  background-color:#999999;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 4.6vw;
+  font-size: 3.5vw; 
+  margin-top: 2.5vw;
+  color: #ffffff;
+}
+.cord-list .cord-item:first-child .index{
+  background-color: #fdcb2a;
+}
+.cord-list .cord-item:nth-child(2) .index{
+  background-color: #fecccb;
+}
+.cord-list .cord-item:nth-child(3) .index{
+  background-color: #68cdfa;
+}
+.cord-list .cord-item image{
+  width: 10.4vw;
+  height: 10.4vw;
+  display: block;
+  float: left;
+  margin-left: 1vw;
+  background-color: #c95464;
+  border-radius: 50%;
+}
+.cord-list .cord-item .content{
+  width:64.2vw;
+  height: 13vw;
+  float: left;
+}
+.cord-list .cord-item .content .title{
+  color: #939393;
+  font-size: 3.2vw;
+  text-align: unset;
+  box-sizing: border-box;
+  padding-left: 2vw;
+}
+.cord-list .cord-item .content .title text{
+  color: #333333;
+  font-size: 3.5vw;
+  padding-right: 3.5vw;
+  display: inline-block;
+  max-width: 40vw;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}
+.cord-list .cord-item .core{
+  width: 11.6vw;
+  height: 13vw;
+  font-size: 4;
+  color: #252525;
+  text-align: right;
+  float: left;
+  
+}

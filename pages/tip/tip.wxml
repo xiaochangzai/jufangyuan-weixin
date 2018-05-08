@@ -1,0 +1,22 @@
+<!--pages/tip/tip.wxml-->
+<view class="wrap">
+  <view class='inner-box'>
+    <view class='title'>亲爱的用户，您好：</view>
+    <view class='content'>
+    对应功能在付款后即可开启使用（不开启这些功能不影响本款小程序的使用哒），所有功能暂不支持退款.特此说明。g安歇您对我们的理解和支持!
+    </view>
+    <view class='content'>
+    温馨提示：
+    </view>
+    <view class='content'>
+    有用户反映说，在付款页面点击退出时，不小心点到了指纹支付上,所以不小心付钱了，由于我们暂不支持退款,因此小伙伴们如果不想购买以上功能，在关闭支付页面的时候一定要看清楚再点哟。
+    </view>
+    <view class='title'>本款小程序一下功能需要付费使用哦:</view>
+    <view class='content'>1. 偷看好友问题的正确答案。单价1元</view>
+    <view class='content'>2. 查看哪位好友回答了您的问题</view>
+    <view class='content'>查看指定好友 单价：0.5元</view>
+    <view class='content'>查看所有好友 单价：2元</view>
+    <view class='content'>3. 增加一次好友回答问题的机会。 单价1元</view>
+  </view>
+  <button open-type="contact" class='help'>如需帮助，请戳客服</button>
+</view>

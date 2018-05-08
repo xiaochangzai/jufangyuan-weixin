@@ -1,0 +1,13 @@
+<!--pages/question/question.wxml-->
+<view class='wrap'>
+  <view class='content'>
+  <view class='title'>{{currentIndex+1}}/10:{{currentQuestion.title}}</view>
+    <radio-group bindchange="onAnswerChange">
+      <view class='item' wx:for="{{currentQuestion.answerArr}}" data-index="{{index}}">
+        <radio value="{{index}}" checked="{{item.checked}}"/>
+        <text>{{item.name}}</text>
+      </view>
+    </radio-group>
+  </view>
+  <button bindtap="anothor">换一题</button>
+</view>

@@ -1,0 +1,39 @@
+<!--pages/report/report.wxml-->
+<view class='wrap'>
+  <view class='header'>
+    <text class='title'>你和{{giverNickName}}的默契值</text>
+    <view class='score-box'>
+      <text>{{myscore}}%</text>
+      <view class='water' style='height:{{curWater}}vw'></view>
+    </view>
+    <view class='menu'>
+      <view class='menu-item'>
+        <image src='../../img/icon-menuitem.png'></image>
+        <navigator url='../home/home'>我也发一个</navigator>
+      </view>
+
+      <view class='menu-item'>
+        <image src='../../img/icon-menuitem.png'></image>
+        <navigator>再答一次</navigator>
+      </view>
+
+      <view class='menu-item'>
+        <image src='../../img/icon-menuitem.png'></image>
+        <navigator class='red'>偷看答案</navigator>
+      </view>
+    </view>
+  </view>
+  <view class='cord-list'>
+    <view class='cord-item' wx:for="{{coresList}}">
+      <view class='index'>{{index+1}}</view>
+      <image src='{{item.headImg}}'></image>
+      <view class='content'>
+        <view class='title'>
+          <text>{{item.nickName}}</text>(答了1次)
+        </view>
+        <view class='title'>{{item.title}}</view>
+      </view>
+      <view class='core'>{{item.score}}%</view>
+    </view>
+  </view>
+</view>

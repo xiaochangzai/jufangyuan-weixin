@@ -1,0 +1,26 @@
+<!--pages/friendAnswer/friendAnswer.wxml-->
+<view class='wrap'>
+  <scroll-view class='messages-box' scroll-y="true" scrollTop="{{scrollTop}}" scroll-with-animation="{{true}}">
+  <view wx:for="{{friendAnswer}}">
+    <view class='message-item-left' wx:if="{{item.type=='question'}}">
+      <image src='' class='head'></image>
+      <view class='title-box'>
+        {{item.index + 1}}/10:{{item.title}}
+        <text></text>
+      </view>
+    </view>
+    
+    <view class='message-item-right' wx:else>
+      
+      <image src='' class='head'></image>
+      <view class='title-box'>
+        {{item.title}}
+        <text></text>
+      </view>
+    </view>
+  </view>
+  </scroll-view>
+  <view class='bottom-box'>
+    <button wx:for="{{currentQuestion.answerArr}}" bindtap='slectAnswer' data-index='{{index}}'>{{item}}</button>
+  </view>
+</view>

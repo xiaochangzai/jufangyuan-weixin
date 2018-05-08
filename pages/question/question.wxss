@@ -1,0 +1,39 @@
+/* pages/question/question.wxss */
+.wrap{
+  min-height: 100vh;
+	width: 100vw;
+	display: block;
+	background-color: #ffd845;
+  padding-top: 6vw;
+}
+.content{
+  width: 88.5vw;
+  background-color: #ffffff;
+  border-radius: 2vw;
+  margin: 0 auto;
+  padding: 0 3vw;
+  padding-top: 1vw;
+  padding-bottom: 11vw;
+}
+.title{
+  height: 20vw;
+  color: #69591b;
+  font-size: 4vw;
+}
+.item{
+  height: 20vw;
+  padding-left: 5.5vw;
+}
+.item text{
+  padding-left: 2vw;
+}
+button{
+  width: 57.5vw;
+  height: 11.2vw;
+  border-radius: 5.6vw;
+  margin: 0 auto;
+  margin-top: 5.5vw;
+  background-color: #ffffff;
+  font-size: 4.2vw;
+  /* box-shadow:0.5vw 0.5vw 1vw #c4c4c4; */
+}

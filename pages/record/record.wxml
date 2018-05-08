@@ -1,0 +1,45 @@
+<!--pages/record/record.wxml-->
+<view class='wrap'>
+  <view class='title'>
+    <text>共出题2次</text>
+    <navigator>返回首页</navigator>
+  </view>
+  <view class='list-item'>
+    <view class='item-tit'>
+      <text>2018-05-04 18:21:28</text>
+      <navigator>查看此题</navigator>
+    </view>
+    <view class='item-content'>此套题暂时还没有人作答哦~</view>
+    <text class='close'>×</text>
+  </view>
+
+  <view class='list-item'>
+    <view class='item-tit'>
+      <text>2018-05-04 18:21:28</text>
+      <navigator>查看此题</navigator>
+    </view>
+    <view class='true-content'>
+      <view class='index'>1</view>
+      <image class='head'></image>
+      <view class='center-box'>
+        <view class='title'>
+          <text>蓝颜知己</text>
+          <image src='../../img/icon-seewho.png'></image>
+        </view>
+        <view class='message'>走点心，我们还能抢救下！</view>
+      </view>
+      <view class='score'>40%</view>
+    </view>
+    <text class='close'>×</text>
+  </view>
+
+  <view class='list-item'>
+    <view class='item-tit'>
+      <text>2018-05-04 18:21:28</text>
+      <navigator>查看此题</navigator>
+    </view>
+    <view class='item-content'>此套题暂时还没有人作答哦~</view>
+    <text class='close'>×</text>
+  </view>
+  <view class='noMucher'>没有更多记录了</view>
+</view>

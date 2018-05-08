@@ -1,0 +1,96 @@
+/* pages/friendAnswer/friendAnswer.wxss */
+.wrap{
+  width: 100%;
+  min-height: 100vh;
+  background-color: #fed943;
+}
+.messages-box{
+  height: 56vw;
+  padding: 0 4.8vw;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+.messages-box .message-item-left,.messages-box .message-item-right{
+  padding-top: 5.5vw;
+  position: relative;
+  overflow-y:auto;
+}
+.messages-box .message-item-left .head{
+  width: 10.5vw;
+  height: 10.5vw;
+  border-radius: 50%;
+  background-color: #2aa143;
+  float: left;
+}
+.messages-box .message-item-right .head{
+  width: 10.5vw;
+  height: 10.5vw;
+  border-radius: 50%;
+  background-color: #2aa143;
+  float: right;
+}
+.messages-box .message-item-left .title-box{
+  max-width: 73vw;
+  font-size: 3.8vw;
+  line-height: 6.4vw;
+  color: #542b29;
+  background-color: #ffffff;
+  border-radius: 2vw;
+  float: left;
+  padding: 2vw 3vw;
+  margin-left: 2.4vw;
+  position: relative;
+}
+.messages-box .message-item-right .title-box{
+  max-width: 73vw;
+  font-size: 3.8vw;
+  line-height: 6.4vw;
+  color: #542b29;
+  background-color: #ffffff;
+  border-radius: 2vw;
+  float: right;
+  padding: 2vw 3vw;
+  margin-right: 2.4vw;
+  position: relative;
+}
+.messages-box .message-item-left .title-box text{
+  width: 2vw;
+  height: 2vw;
+  position: absolute;
+  top: 4.5vw;
+  left: -1vw;
+  transform: rotate(45deg);
+  background-color: #ffffff;
+  display: block; 
+}
+.messages-box .message-item-right .title-box text{
+  width: 2vw;
+  height: 2vw;
+  position: absolute;
+  top: 4.5vw;
+  right: -1vw;
+  transform: rotate(45deg);
+  background-color: #ffffff;
+  display: block; 
+}
+.bottom-box{
+  position: absolute;
+  bottom: 0;
+  left:6.2vw;
+}
+.bottom-box button{
+  width: 87.6vw;
+  height: 10.5vw;
+  line-height: 10.5vw;
+  display: block;
+  background-color: #ffffff;
+  border: unset;
+  margin: 0 auto;
+  margin-bottom: 1vw;
+  border-radius: 5.25vw;
+  font-size: 3.4vw;
+  color: #542b29;
+}
+.bottom-box button:last-child{
+  margin-bottom: 0.4vw;
+}

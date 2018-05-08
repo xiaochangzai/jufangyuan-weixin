@@ -1,0 +1,19 @@
+{
+  "pages": [
+    "pages/record/record",
+    "pages/home/home",
+    "pages/report/report",
+    "pages/friendAnswer/friendAnswer",
+    "pages/question/question",
+    "pages/test/test",
+    "pages/tip/tip",
+    "pages/index/index",
+    "pages/logs/logs"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#ffd845",
+    "navigationBarTitleText": "好友默契大考验",
+    "navigationBarTextStyle": "black"
+  }
+}
