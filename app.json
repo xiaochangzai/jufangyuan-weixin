@@ -2,8 +2,8 @@
   "pages": [
     "pages/record/record",
     "pages/home/home",
-    "pages/report/report",
     "pages/friendAnswer/friendAnswer",
+    "pages/report/report",
     "pages/question/question",
     "pages/test/test",
     "pages/tip/tip",

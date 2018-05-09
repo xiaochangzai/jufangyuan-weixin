@@ -26,6 +26,7 @@
 }
 .item text{
   padding-left: 2vw;
+  font-size: 3.5vw;
 }
 button{
   width: 57.5vw;
