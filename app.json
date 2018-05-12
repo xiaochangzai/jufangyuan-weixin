@@ -1,14 +1,17 @@
 {
   "pages": [
-    "pages/record/record",
+    "pages/answerRecord/answerRecord",
+    "pages/test/test",
     "pages/home/home",
+    "pages/myquestion/myquestion",
+    "pages/record/record",
     "pages/friendAnswer/friendAnswer",
     "pages/report/report",
     "pages/question/question",
-    "pages/test/test",
     "pages/tip/tip",
     "pages/index/index",
     "pages/logs/logs"
+   
   ],
   "window": {
     "backgroundTextStyle": "light",

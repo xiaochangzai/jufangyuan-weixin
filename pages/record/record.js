@@ -1,18 +1,20 @@
 // pages/record/record.js
+import api from '../../utils/api.js';
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    
+    userId:"12345689",
+    recordsList:[]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.getRecords();
   },
 
   /**
@@ -62,5 +64,32 @@ Page({
    */
   onShareAppMessage: function () {
   
+  },
+  /**
+   * 出题记录
+   */
+  getRecords: function(){
+    wx.showLoading({
+      title: '加载中...',
+    });
+    wx.request({
+      url: api.getGiverListByUser,
+      data: {
+        userId: this.data.userId
+      },
+      success: (res)=>{
+        console.log("获取出题记录成功!");
+        console.log(res);
+        if(res.data.flag){
+          this.setData({
+            recordsList: res.data.result
+          });
+        }
+      },
+      complete: ()=>{
+        wx.hideLoading();
+      }
+
+    })
   }
 })

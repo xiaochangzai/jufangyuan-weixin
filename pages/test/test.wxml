@@ -1,5 +1,2 @@
-<radio-group class="radio-group" bindchange="radioChange">
-  <view class="radio" wx:for="{{items}}">
-    <radio value="{{item.name}}" />{{item.value}}
-  </view>
-</radio-group>
+
+<myanswer item="{{item}}" index="1"></myanswer>

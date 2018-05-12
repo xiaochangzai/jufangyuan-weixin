@@ -1,25 +1,16 @@
 <!--pages/record/record.wxml-->
 <view class='wrap'>
   <view class='title'>
-    <text>共出题2次</text>
+    <text>共出题{{recordsList.length}}次</text>
     <navigator>返回首页</navigator>
   </view>
-  <view class='list-item'>
+  <view class='list-item' wx:for="{{recordsList}}">
     <view class='item-tit'>
-      <text>2018-05-04 18:21:28</text>
+      <text>{{item.createTime}}</text>
       <navigator>查看此题</navigator>
     </view>
-    <view class='item-content'>此套题暂时还没有人作答哦~</view>
-    <text class='close'>×</text>
-  </view>
-
-  <view class='list-item'>
-    <view class='item-tit'>
-      <text>2018-05-04 18:21:28</text>
-      <navigator>查看此题</navigator>
-    </view>
-    <view class='true-content'>
-      <view class='index'>1</view>
+    <view class='true-content' wx:if="{{item.dealNum > 0}}">
+      <view class='index'>{{item.dealNum}}</view>
       <image class='head'></image>
       <view class='center-box'>
         <view class='title'>
@@ -28,17 +19,9 @@
         </view>
         <view class='message'>走点心，我们还能抢救下！</view>
       </view>
-      <view class='score'>40%</view>
+      <view class='score'>{{item.maxScore}}%</view>
     </view>
-    <text class='close'>×</text>
-  </view>
-
-  <view class='list-item'>
-    <view class='item-tit'>
-      <text>2018-05-04 18:21:28</text>
-      <navigator>查看此题</navigator>
-    </view>
-    <view class='item-content'>此套题暂时还没有人作答哦~</view>
+    <view class='item-content'>暂时还没有人回答此题哦~</view>
     <text class='close'>×</text>
   </view>
   <view class='noMucher'>没有更多记录了</view>

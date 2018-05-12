@@ -7,5 +7,8 @@ module.exports = {
   addQuedealer: urlHeader + "addQuedealer.do", // 添加答题记录
   getQuedealByGivId: urlHeader + "getQuedealByGivId.do", // 根据出题id获取所有答题分数
   getGiverInfo: urlHeader + "getGiverInfo.do", // 获取出题人的信息
-  addUser: urlHeader + "addUser.do" // 添加用户信息
+  addUser: urlHeader + "addUser.do", // 添加用户信息
+  getGiverListByUser: urlHeader + "getGiverListByUser.do", // 我的出题记录
+  getDealByUser: urlHeader + "getDealByUser.do", // 获取我的做题记录
+  getDealById: urlHeader + "getDealById.do" // 根据id获得我做的题
 }
