@@ -1,27 +1,30 @@
 <!--pages/home/home.wxml-->
 <view class='wrap'>
   <view class='content'>
-    <image class='headImg' src='{{userInfo.headImg}}'></image>
+    <image class='headImg' src='{{userInfo.avatarUrl}}'></image>
     <view class='nickName'>{{userInfo.nickName}}</view>
     <button class='start' bindtap='start'>开始出题</button>
     <view class='menu'>
-      <view class='menu-item'>
+      <navigator class='menu-item' url='../record/record'>
         <text>出题记录</text>
         <text></text>
-      </view>
-      <view class='menu-item'>
+      </navigator>
+      <navigator class='menu-item' url='../answerRecord/answerRecord'>
         <text>答题记录</text>
         <text></text>
-      </view>
+      </navigator>
       <view class='menu-item'>
+      <button open-type='contact'>
         <text>联系客服</text>
         <text></text>
+        </button>
       </view>
       <view class='menu-item'>
         <text>付费详情</text>
-      </view>   
+      </view>
     </view>
   </view>
 </view>
 <image class='help' src='../../../img/icon-help.png'></image>
 <image class='tousu' src='../../../img/icon-tousu.png'></image>
+<loginCompnent id="authorieze" bindagree="agree"></loginCompnent>

@@ -1,2 +1,1 @@
-
-<myanswer item="{{item}}" index="1"></myanswer>
+<button bindtap="pay" type="primary">支付</button>

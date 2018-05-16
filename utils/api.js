@@ -1,4 +1,5 @@
-var urlHeader = "http://localhost:8090/jufangyuan/";
+// var urlHeader = "http://localhost:8090/jufangyuan/";
+var urlHeader = "https://qaq.jfy108.net/jufangyuan-0.0.1-SNAPSHOT/";
 module.exports = {
   getSolveId: urlHeader + "getSolveId.do", // 获取一个做题的id
   getQuestionsAll: urlHeader + "getQuestionsAll.do",	// 获取所有的题目
@@ -10,5 +11,7 @@ module.exports = {
   addUser: urlHeader + "addUser.do", // 添加用户信息
   getGiverListByUser: urlHeader + "getGiverListByUser.do", // 我的出题记录
   getDealByUser: urlHeader + "getDealByUser.do", // 获取我的做题记录
-  getDealById: urlHeader + "getDealById.do" // 根据id获得我做的题
+  getDealById: urlHeader + "getDealById.do", // 根据id获得我做的题
+  getUserOpenId: urlHeader + "getUserOpenId.do",// 获取用户open Id
+  pay: urlHeader + "pay.do"
 }

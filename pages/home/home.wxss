@@ -79,3 +79,6 @@
   top: 17.3vw;
   right: 2.3vw;
 }
+.menu-item button{
+  height: 8vw;
+}

@@ -128,11 +128,14 @@ Page({
        this.uploadAnswer();
        return;
      }
-      this.setData({
-        answerList: this.data.answerList,
-        currentIndex: this.data.currentIndex + 1,
-        currentQuestion: this.data.questionsList[this.data.currentIndex + 1]
-      });
+     setTimeout(()=>{
+       this.setData({
+         answerList: this.data.answerList,
+         currentIndex: this.data.currentIndex + 1,
+         currentQuestion: this.data.questionsList[this.data.currentIndex + 1]
+       });
+     },600);
+      
 
       
 

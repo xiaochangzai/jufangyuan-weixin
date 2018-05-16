@@ -1,8 +1,8 @@
 {
   "pages": [
-    "pages/answerRecord/answerRecord",
-    "pages/test/test",
     "pages/home/home",
+    "pages/test/test",
+    "pages/answerRecord/answerRecord",
     "pages/myquestion/myquestion",
     "pages/record/record",
     "pages/friendAnswer/friendAnswer",
@@ -11,12 +11,11 @@
     "pages/tip/tip",
     "pages/index/index",
     "pages/logs/logs"
-   
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#ffd845",
-    "navigationBarTitleText": "好友默契大考验",
+    "navigationBarTitleText": "最佳死党大比拼",
     "navigationBarTextStyle": "black"
   }
 }

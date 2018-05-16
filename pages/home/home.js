@@ -19,10 +19,20 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    if (!app.globalData.userInfo){
-      this.getUserInfo();
+
+    if (app.globalData.userInfo == null){
+      // this.getUserInfo();
+      this.login();
     }
-    
+    // debugger;
+    var loginCompnent = this.selectComponent("#authorieze");
+    // console.log(loginCompnent);
+    loginCompnent.show((userInfo)=>{
+      console.log("--------------");
+      console.log(userInfo);
+    });
+    console.log("---------------");
+    console.log(loginCompnent.userInfo);
   },
 
   /**
@@ -73,31 +83,10 @@ Page({
   onShareAppMessage: function () {
   
   },
-  /**
-   * 获取用户信息
-   */
-  getUserInfo: function (){
-    wx.getUserInfo({
-      success: res => {
-        console.log("成功获取用户信息！");
-        console.log(res);
-        app.globalData.userInfo = res.userInfo
-        this.setData({
-          userInfo: {
-            nickName: res.userInfo.nickName,
-            headImg: res.userInfo.avatarUrl,
-            openId:"1234567890"
-          },
-          hasUserInfo: true
-        })
 
-        this.uploadUserInfo();
-      }
-    });
-
-  },
   start: function(){
-    
+    // 上传用户信息
+    this.uploadUserInfo();
     wx.navigateTo({
       url: '../question/question',
     })
@@ -111,12 +100,57 @@ Page({
       data:{
         nickName: this.data.userInfo.nickName,
         headImg: this.data.userInfo.headImg,
-        userId: this.data.userInfo.openId
+        userId: app.globalData.openId
       },
       success: function(res){
         console.log("上传用户信息成功！");
         console.log(res);
       }
     })
+  },
+  /**
+   * 登陆
+   */
+  login(){
+    // 登陆
+    console.log("---------------登陆------------");
+    wx.login({
+      success: (res)=>{
+        console.log(res);
+        app.globalData.code = res.code;
+        this.getOpenId();
+      }
+    })
+  },
+ /**
+  * 获取open Id 
+  */
+  getOpenId(){
+    console.log("-------------- 获取openId-----------");
+    wx.request({
+      url: api.getUserOpenId,
+      data:{
+        code: app.globalData.code
+      },
+      success: (res)=>{
+        console.log("获取用户openId成功！");
+        console.log(res);
+        var tempObj = JSON.parse(res.data.result);
+        app.globalData.openId = tempObj.openid;
+
+        // this.uploadUserInfo();
+      }
+    })
+  },
+  /**
+   * 同意
+   */
+  agree: function(res){
+    var userInfo = res.detail.detail.userInfo;
+    console.log(userInfo);
+    this.setData({
+      userInfo: userInfo
+    });
   }
+ 
 })
