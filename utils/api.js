@@ -1,5 +1,5 @@
-// var urlHeader = "http://localhost:8090/jufangyuan/";
-var urlHeader = "https://qaq.jfy108.net/jufangyuan/";
+var urlHeader = "http://localhost:8090/jufangyuan/";
+// var urlHeader = "https://qaq.jfy108.net/jufangyuan/";
 module.exports = {
   getSolveId: urlHeader + "getSolveId.do", // 获取一个做题的id
   getQuestionsAll: urlHeader + "getQuestionsAll.do",	// 获取所有的题目
