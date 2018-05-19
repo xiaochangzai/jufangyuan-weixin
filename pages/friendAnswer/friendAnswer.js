@@ -205,16 +205,16 @@ Page({
       url: api.addQuedealer,
       data: {
         giveId: that.data.queGiverVrId,
-        userId: "123",
+        userId: app.globalData.openId,
         answers: that.data.friendAnswerStr,
         score: that.data.score
       },
       success: function(res){
+        debugger;
         console.log("上传分数成功！");
         console.log(res);
-        // 跳转
         wx.navigateTo({
-          url: '../poster/poster?',
+          url: '../report/report?id=' + that.data.queGiverId,
         })
       }
     })

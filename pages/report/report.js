@@ -19,6 +19,9 @@ Page({
    */
   onLoad: function (options) {
     var that = this;
+    this.setData({
+      giveId: options.id
+    });
     setTimeout(function(){
 
     },2000);

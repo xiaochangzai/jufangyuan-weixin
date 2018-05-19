@@ -1,6 +1,6 @@
 // pages/question/question.js
 import api from '../../utils/api.js';
-
+var app = getApp();
 Page({
 
   /**
@@ -116,8 +116,6 @@ Page({
       })
    },
    onAnswerChange: function (e){
-      console.log("选择发生了变化");
-      console.log(e);
       this.data.answerList.push({
         vrId: this.data.currentQuestion.vrId,
         answer: e.detail.value
@@ -134,11 +132,7 @@ Page({
          currentIndex: this.data.currentIndex + 1,
          currentQuestion: this.data.questionsList[this.data.currentIndex + 1]
        });
-     },600);
-      
-
-      
-
+     },600);  
     },
     anothor: function (){
       var len = this.data.questionsList.length;
@@ -160,11 +154,16 @@ Page({
         url: api.addQuegiver,
         data:{
           answers: answerStr,
-          giverId: "12345689"
+          giverId: app.globalData.openId
         },
         success:function(res){
           console.log("提交答案结束");
           console.log(res);
+          if(res.data.state){
+            wx.navigateTo({
+              url: '../poster/poster?id=' + res.data.result,
+            })
+          }
         }
       })
     }
