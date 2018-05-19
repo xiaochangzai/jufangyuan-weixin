@@ -22,6 +22,13 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log("进入好友回答");
+    console.log(options);
+    var scene = decodeURIComponent(options.scene);
+    wx.showModal({
+      title: 'id',
+      content: scene,
+    });
     this.getQuestions();
   },
 
@@ -206,7 +213,9 @@ Page({
         console.log("上传分数成功！");
         console.log(res);
         // 跳转
-        
+        wx.navigateTo({
+          url: '../poster/poster?',
+        })
       }
     })
   }

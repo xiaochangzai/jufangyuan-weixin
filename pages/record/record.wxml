@@ -2,12 +2,12 @@
 <view class='wrap'>
   <view class='title'>
     <text>共出题{{recordsList.length}}次</text>
-    <navigator>返回首页</navigator>
+    <navigator url='../home/home'>返回首页</navigator>
   </view>
   <view class='list-item' wx:for="{{recordsList}}">
     <view class='item-tit'>
       <text>{{item.createTime}}</text>
-      <navigator>查看此题</navigator>
+      <navigator url='../myquestion/myquestion?id={{item.vrId}}'>查看此题</navigator>
     </view>
     <view class='true-content' wx:if="{{item.dealNum > 0}}">
       <view class='index'>{{item.dealNum}}</view>

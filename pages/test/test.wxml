@@ -1,1 +1,3 @@
-<button bindtap="pay" type="primary">支付</button>
+<canvas  canvas-id="canvas"></canvas>
+
+<button bindtap='saveCanvas'>保存</button>

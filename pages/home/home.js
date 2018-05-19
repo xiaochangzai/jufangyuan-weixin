@@ -20,6 +20,8 @@ Page({
    */
   onLoad: function (options) {
 
+
+
     if (app.globalData.userInfo == null){
       // this.getUserInfo();
       this.login();

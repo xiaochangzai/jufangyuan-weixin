@@ -1,1 +1,6 @@
 /* pages/test/test.wxss */
+canvas{
+  width: 375px;
+  height: 375px;
+  background-color: #ffffff;
+}

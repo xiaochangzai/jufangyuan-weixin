@@ -60,6 +60,7 @@ const pay = num =>{
       'price': num
     },
     success: (res)=>{
+      debugger;
       console.log(res.data)
       console.log(res.data.timeStamp);
       console.log(res.data.nonceStr);
@@ -75,6 +76,17 @@ const pay = num =>{
         success: (res)=>{
           console.log("支付成功！");
           console.log(res);
+          wx.showToast({
+            title: '支付成功',
+            icon: "success"
+          })
+        },
+        error: (res)=>{
+          wx.showToast({
+            title: '支付失败',
+            icon: "error"
+          })
+          console.log("支付失败！");
         }
       })
     }
