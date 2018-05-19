@@ -50,7 +50,7 @@ const getOrderId = ()=>{
   return randomNum(1000, 99999999999);
 }
 
-const pay = num =>{
+const pay = (num,fn) =>{
   wx.request({
     url: api.pay,
     data: {
@@ -66,7 +66,9 @@ const pay = num =>{
       console.log(res.data.nonceStr);
       console.log(res.data.package);
       console.log(res.data.paySign);
-
+      if(fn){
+        fn();
+      }
       wx.requestPayment({
         timeStamp: res.data.timeStamp,
         nonceStr: res.data.nonceStr,

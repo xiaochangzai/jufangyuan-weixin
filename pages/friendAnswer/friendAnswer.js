@@ -1,5 +1,6 @@
 // pages/friendAnswer/friendAnswer.js
 import api from '../../utils/api.js';
+var app = getApp();
 Page({
 
   /**
@@ -23,7 +24,12 @@ Page({
    */
   onLoad: function (options) {
     console.log("进入好友回答");
-    console.log(options);
+    console.log(options.id);
+    if(options.id){
+        this.setData({
+          queGiverVrId: options.id
+        });
+    }
     var scene = decodeURIComponent(options.scene);
     wx.showModal({
       title: 'id',
@@ -200,6 +206,7 @@ Page({
    * 上传分数
    */
   uploadScore: function(){
+    debugger;
     var that = this;
     wx.request({
       url: api.addQuedealer,
@@ -214,7 +221,7 @@ Page({
         console.log("上传分数成功！");
         console.log(res);
         wx.navigateTo({
-          url: '../report/report?id=' + that.data.queGiverId,
+          url: '../report/report?id=' + that.data.queGiverVrId,
         })
       }
     })

@@ -18,6 +18,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log("------ 报告 --------");
+    console.log(options);
+    debugger;
     var that = this;
     this.setData({
       giveId: options.id
@@ -86,6 +89,7 @@ Page({
    * 根据此出题记录获取所有答题记录
    */
   getCoresByGivId:function(){
+    debugger;
     var that = this;
     wx.showLoading({
       title: '正在加载...'
@@ -96,6 +100,7 @@ Page({
         giveId:this.data.giveId
       },
       success: function(res){
+        debugger;
         console.log("数据加载完成！");
         console.log(res);
         if(res.data.flag){
@@ -125,6 +130,7 @@ Page({
    * 获取出题人信息
    */
   getQueGiverInfo(){
+    debugger;
     var that = this;
     wx.request({
       url: api.getGiverInfo,
@@ -133,6 +139,7 @@ Page({
         giveId:this.data.giveId
       },
       success: function(res){
+        debugger;
        console.log("获取出题人信息成功！");
        console.log(res);
        if(res.data.flag){
