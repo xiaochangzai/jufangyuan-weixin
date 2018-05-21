@@ -1,0 +1,44 @@
+<!--pages/myanswer/myanswer.wxml-->
+<view class='list-item' bindtap='show'>
+    <view class='item-tit'>
+      <text>{{item.dealTime}}</text>
+    </view>
+    <view class='true-content'>
+      <view class='index'>{{index + 1}}</view>
+      <image class='head' src='{{item.headImg}}'></image>
+      <view class='center-box'>
+        <view class='title'>
+          <text>蓝颜知己</text>
+          <text class='times'>（我答了1次）</text>
+        </view>
+        <view class='message'>走点心，我们还能抢救下！</view>
+      </view>
+      <view class='score'>{{item.score}}%</view>
+    </view>
+    <text class='close'>×</text>
+  </view>
+<view class='modal-bg' wx:if="{{_isShow}}">
+  <view class='myanswer-box'>
+    <view class='head'>
+      <image></image>
+      <view class='title-box'>
+        <text>我的回答</text>
+        <button bindtap='seeAnswer'>偷看答案</button>
+      </view>
+      <text class='exit' bindtap='hide'>×</text>
+    </view>
+
+    <scroll-view class='list-box' scroll-y="{{true}}">
+      <view class='list-item' wx:for="{{questionArr}}">
+        <view class='title'>Q{{index + 1}}: {{item.title}}</view>
+        <view class='ans'>
+           <text class='ico' wx:if="{{item.state || _seeAnswer}}">√</text>
+          <text class='ico err' wx:else>×</text>
+         
+          <text class='ans-tit'>{{_seeAnswer ? item.trueAnsStr : item.ansStr}}</text>
+        </view>
+      </view>
+
+    </scroll-view>
+  </view>
+</view>

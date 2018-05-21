@@ -1,0 +1,65 @@
+/* pages/poster/poster.wxss */
+.top-img{
+  width: 77.2vw;
+  height: 22.4vw;
+  display: block;
+  margin: 0 auto;
+  margin-top: 5.2vw;
+}
+.code{
+  width: 43.6vw;
+  height: 43.6vw;
+  display: block;
+  margin: 0 auto;
+  margin-top: 10.6vw;
+}
+.point-box{
+  height: 23.2vw;
+  box-sizing: border-box;
+  padding-top: 7.7vw;
+  padding-left: 34.3vw;
+}
+.point-box image{
+  width: 4.6vw;
+  height: 4.6vw;
+  display: block;
+  float: left;
+}
+.point-box text{
+  width: 47vw;
+  height: 10vw;
+  font-size: 4vw;
+  color: #949494;
+  padding-left: 1.3vw;
+  display: block;
+  float: left;
+}
+.invite{
+  width: 53.3vw;
+  height: 10.5vw;
+  background-color: #fede17;
+  border-radius: 5.25vw;
+  border: unset;
+  font-size: 3.7vw;
+  color: #250500;
+  line-height: 10.5vw;
+}
+button::after{
+  border: unset;
+}
+.saveport{
+  width: 53.3vw;
+  height: 10.5vw;
+  line-height: 10.5vw;
+  border-radius: 5.25vw;
+  background-color: #343434;
+  color: #feec20;
+  font-size: 3.9vw;
+  margin-top: 4vw;
+}
+canvas{
+  width: 375px;
+  height: 375px;
+  background-color: #ffffff;
+  /* display: none; */
+}

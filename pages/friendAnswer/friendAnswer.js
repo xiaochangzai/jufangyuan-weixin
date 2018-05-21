@@ -16,7 +16,8 @@ Page({
     friendAnswer:[],
     scrollTop: 0,
     score: 0,
-    friendAnswerStr:""
+    friendAnswerStr:"",
+    tempHide: false
   },
 
   /**
@@ -31,10 +32,11 @@ Page({
         });
     }
     var scene = decodeURIComponent(options.scene);
-    wx.showModal({
-      title: 'id',
-      content: scene,
-    });
+    if(scene != "undefined" &&  scene){
+      this.setData({
+        queGiverVrId: scene
+      });
+    }
     this.getQuestions();
   },
 
@@ -100,6 +102,7 @@ Page({
       url: api.getQuestionsByGiverId,
       data:{
         giverId: that.data.queGiverVrId
+        // giverId: 40
       },
       success: function(res){
         console.log("请求数据完成！");
@@ -152,7 +155,9 @@ Page({
    */
   slectAnswer: function(e){
     var that = this;
-    
+    this.setData({
+      tempHide: true
+    });
     var index = e.target.dataset.index;
     var title = this.data.currentQuestion.answerArr[index];
     this.data.friendAnswer.push({
@@ -183,15 +188,21 @@ Page({
       index: this.data.currentIndex + 1,
       type: "question"
     });
+    setTimeout(()=>{
+      this.setData({
+        friendAnswer: this.data.friendAnswer
+      });
 
-    this.setData({
-      friendAnswer: this.data.friendAnswer
-    });
+      this.setData({
+        currentIndex: this.data.currentIndex + 1,
+        currentQuestion: this.data.questions[this.data.currentIndex + 1]
+      });
 
-    this.setData({
-      currentIndex: this.data.currentIndex+1,
-      currentQuestion: this.data.questions[this.data.currentIndex + 1]
-    });
+      this.setData({
+        tempHide: false
+      });
+    },1000);
+    
 
     // 滚动到最底部
     wx.createSelectorQuery().select('.messages-box').boundingClientRect(function (rect) {
@@ -206,7 +217,6 @@ Page({
    * 上传分数
    */
   uploadScore: function(){
-    debugger;
     var that = this;
     wx.request({
       url: api.addQuedealer,
@@ -217,7 +227,6 @@ Page({
         score: that.data.score
       },
       success: function(res){
-        debugger;
         console.log("上传分数成功！");
         console.log(res);
         wx.navigateTo({

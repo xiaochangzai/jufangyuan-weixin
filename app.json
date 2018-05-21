@@ -1,13 +1,13 @@
 {
   "pages": [
     "pages/home/home",
-    "pages/poster/poster",
+    "pages/report/report",
     "pages/test/test",
+    "pages/friendAnswer/friendAnswer",
+    "pages/record/record",
+    "pages/poster/poster",
     "pages/answerRecord/answerRecord",
     "pages/myquestion/myquestion",
-    "pages/record/record",
-    "pages/friendAnswer/friendAnswer",
-    "pages/report/report",
     "pages/question/question",
     "pages/tip/tip",
     "pages/index/index",

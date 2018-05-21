@@ -14,12 +14,12 @@
 
       <view class='menu-item'>
         <image src='../../img/icon-menuitem.png'></image>
-        <navigator>再答一次</navigator>
+        <navigator url='../friendAnswer/friendAnswer?id={{giveId}}'>再答一次</navigator>
       </view>
 
       <view class='menu-item'>
         <image src='../../img/icon-menuitem.png'></image>
-        <navigator class='red'>偷看答案</navigator>
+        <navigator class='red' catchtap='seeAnswer'>偷看答案</navigator>
       </view>
     </view>
   </view>
@@ -37,3 +37,5 @@
     </view>
   </view>
 </view>
+
+<answerComponent item="{{myItem}}" index="0" id="answercomponent"></answerComponent>

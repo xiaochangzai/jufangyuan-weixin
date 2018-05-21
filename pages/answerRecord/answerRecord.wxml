@@ -1,0 +1,11 @@
+<!--pages/answerRecord/answerRecord.wxml-->
+
+<view class='wrap'>
+  <view class='title'>
+    <text>共答题{{recordsList.length}}次</text>
+    <navigator>返回首页</navigator>
+  </view>
+  <myanswer wx:for="{{recordsList}}" index="{{index}}" item="{{item}}"></myanswer>
+  <view class='noMucher'>没有更多记录了</view>
+</view>
+

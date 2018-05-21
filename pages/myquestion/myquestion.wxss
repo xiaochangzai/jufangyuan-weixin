@@ -1,0 +1,56 @@
+/* pages/myquestion/myqiestion.wxss */
+.wrap{
+  min-height: 100vh;
+  background-color: #f1f1f1;
+  padding: 5.7vw 5.7vw 16vw 5.7vw;
+}
+.item{
+  width: 88.5vw;
+  height: 18.5vw;
+  background-color: #ffffff;
+  border-radius: 0.8vw;
+  box-sizing: border-box;
+  padding-top: 4.2vw;
+  padding-left: 4vw;
+  margin-bottom: 4vw;
+}
+.item .title{
+  font-size:3.4vw;
+  color: #463e14;
+}
+.item .answer{
+  font-size: 3.4vw;
+  box-sizing: border-box;
+  padding-top: 2.5vw;
+}
+.item .answer text:first-child{
+  width: 4.5vw;
+  height: 4.5vw;
+  text-align: center;
+  background-color: #f6e024;
+  display: block;
+  line-height: 4.5vw;
+  font-size: 3vw;
+  float: left;
+  border-radius: 50%;
+  margin-right: 2.3vw;
+}
+.item .answer text:last-child{
+  padding-top: 0.6vw;
+}
+.bottom{
+  width: 100vw;
+  height: 17vw;
+  position: fixed;
+  bottom: 0;
+  background-color: #f1f1f1;
+}
+.bottom button{
+  width: 53.4vw;
+  height: 10.4vw;
+  background-color: #ffde15;
+  font-size: 3.5vw;
+  display: block;
+  border: unset;
+  border-radius: 5.2vw;
+}

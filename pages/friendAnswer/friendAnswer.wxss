@@ -77,6 +77,10 @@
   position: absolute;
   bottom: 0;
   left:6.2vw;
+  transition: all 2s ease-out;
+}
+.temp-hide{
+  bottom: -90vw;
 }
 .bottom-box button{
   width: 87.6vw;

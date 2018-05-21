@@ -1,0 +1,14 @@
+<!--pages/poster/poster.wxml
+
+  <image class='top-img' src='../../img/icon-porter.png'></image>
+  <image class='code' src='{{codePath}}'></image>
+  <view class='point-box'>
+    <image src='../../img/icon-finger.png'></image>
+    <text>长按扫码查看</text>
+  </view>
+-->
+<view class='wrap'>
+  <canvas  canvas-id="canvas"></canvas>
+  <button class='invite' open-type="share">邀请好友答题</button>
+  <button class='saveport' bindtap='saveCanvas'>保存海报</button>
+</view>

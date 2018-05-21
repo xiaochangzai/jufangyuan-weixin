@@ -1,0 +1,16 @@
+<!--pages/loginCompnent/loginCompnent.wxml-->
+<view class='modal-bg' wx:if="{{_isShow}}">
+  <view class='inner-box'>
+    <view class='title'>微信授权</view>
+    <image src='../../img/headImg.jpg' class='user-head'></image>
+    <view class='message'>蚁管家名片申请获得一下权限：</view>
+    <view class='list-item'>
+      <text></text>
+      <text>获得你的公开信息 （昵称、头像等）</text>
+    </view>
+    <view class='btm-btns'>
+      <button class='btn-cancle' type='cancle' bindtap='cancle'>拒绝</button>
+      <button class='btn-ok' open-type='getUserInfo' bindgetuserinfo='getUserInfo'>允许</button>
+    </view>
+  </view>
+</view>

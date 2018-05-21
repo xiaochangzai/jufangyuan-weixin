@@ -1,0 +1,13 @@
+<!--pages/myquestion/myqiestion.wxml-->
+<view class='wrap'>
+  <view class='item' wx:for="{{questions}}">
+    <view class='title'>Q{{index + 1}}: {{item.title}}</view>
+    <view class='answer'>
+      <text>√</text>
+      <text>{{item.ansArr[item.ansIndex]}}</text>
+    </view>
+  </view>
+</view>
+<view class='bottom'>
+  <button>当前题目再发一次</button>
+</view>

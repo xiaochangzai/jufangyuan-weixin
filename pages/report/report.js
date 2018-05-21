@@ -1,5 +1,6 @@
 // pages/report/report.js
 import api from "../../utils/api.js";
+var app = getApp();
 Page({
 
   /**
@@ -11,7 +12,10 @@ Page({
     coresList:[],
     giverNickName:"",
     giverHeadImg:"",
-    myscore:0
+    myscore:0,
+    myItem: {
+      score: 0
+    }
   },
 
   /**
@@ -20,13 +24,12 @@ Page({
   onLoad: function (options) {
     console.log("------ 报告 --------");
     console.log(options);
-    debugger;
     var that = this;
     this.setData({
       giveId: options.id
     });
     setTimeout(function(){
-
+      
     },2000);
     this.setData({
       curWater: 31.8*0.7
@@ -89,7 +92,6 @@ Page({
    * 根据此出题记录获取所有答题记录
    */
   getCoresByGivId:function(){
-    debugger;
     var that = this;
     wx.showLoading({
       title: '正在加载...'
@@ -100,13 +102,24 @@ Page({
         giveId:this.data.giveId
       },
       success: function(res){
-        debugger;
         console.log("数据加载完成！");
         console.log(res);
         if(res.data.flag){
           // 处理提示
           res.data.result.forEach(function(item){
             item.title = that.getStrByScore(item.score);
+            // 判断是不是自己
+            if(item.userId == app.globalData.openId){
+
+              if(item.score > that.data.myItem.score){
+                  that.setData({
+                    myItem: item
+                  });
+                  console.log("找回自己： ");
+                  console.log(item);
+              }
+              console.log(item.userId + "   ======   " + that.data.myItem.userId);
+            }            
           });
           that.setData({
             coresList: res.data.result
@@ -130,7 +143,6 @@ Page({
    * 获取出题人信息
    */
   getQueGiverInfo(){
-    debugger;
     var that = this;
     wx.request({
       url: api.getGiverInfo,
@@ -139,7 +151,6 @@ Page({
         giveId:this.data.giveId
       },
       success: function(res){
-        debugger;
        console.log("获取出题人信息成功！");
        console.log(res);
        if(res.data.flag){
@@ -155,5 +166,12 @@ Page({
 
       }
     })
+  },
+  /**
+   * 偷看答案
+   */
+  seeAnswer: function(){
+    var component = this.selectComponent("#answercomponent");
+    component.show();
   }
 })

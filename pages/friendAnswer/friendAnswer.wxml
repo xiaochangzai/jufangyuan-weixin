@@ -20,7 +20,7 @@
     </view>
   </view>
   </scroll-view>
-  <view class='bottom-box'>
+  <view class='bottom-box {{tempHide ? "temp-hide":""}}' >
     <button wx:for="{{currentQuestion.answerArr}}" bindtap='slectAnswer' data-index='{{index}}'>{{item}}</button>
   </view>
 </view>
