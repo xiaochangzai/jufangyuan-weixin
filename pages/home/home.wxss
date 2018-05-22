@@ -63,6 +63,24 @@
   float: left;
   margin-top: 1.5vw ;
 }
+.menu .menu-item:last-child text:last-child{
+  width: 22.6vw;
+  display: block;
+  float: left;
+  text-align: center;
+  color: #50532f;
+  background: unset;
+  margin: unset;
+  line-height: 8vw;
+}
+.menu .menu-item:last-child text:first-child{
+  width: 0.2vw;
+  height: 4.6vw;
+  background-color: #554c1f;
+  display: block;
+  float: left;
+  margin-top: 1.5vw ;
+}
 .help{
   width: 4.3vw;
   height: 4.3vw;
@@ -81,4 +99,15 @@
 }
 .menu-item button{
   height: 8vw;
+  width: 20vw;
+  padding: 0;
+  margin: 0;
+}
+.menu-item button text:last-child{
+  width: 0.2vw;
+  height: 4.6vw;
+  background-color: #554c1f;
+  display: block;
+  float: right;
+  margin-top: 1.5vw ;
 }

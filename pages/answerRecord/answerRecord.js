@@ -16,7 +16,7 @@ Page({
    */
   onLoad: function (options) {
     this.setData({
-      userId: app.data.userId
+      userId: app.globalData.openId
     });
     this.getQuestions();
   },

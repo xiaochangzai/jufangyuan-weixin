@@ -1,1 +1,1 @@
-<answerComponent></answerComponent>
+<button bindtap="pay" type="primary">支付</button>

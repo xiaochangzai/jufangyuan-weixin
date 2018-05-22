@@ -1,5 +1,6 @@
 // pages/report/report.js
 import api from "../../utils/api.js";
+import util from "../../utils/util.js";
 var app = getApp();
 Page({
 
@@ -15,7 +16,8 @@ Page({
     myscore:0,
     myItem: {
       score: 0
-    }
+    },
+    _seeAnswer: false
   },
 
   /**
@@ -110,7 +112,7 @@ Page({
             item.title = that.getStrByScore(item.score);
             // 判断是不是自己
             if(item.userId == app.globalData.openId){
-
+              debugger;
               if(item.score > that.data.myItem.score){
                   that.setData({
                     myItem: item
@@ -121,8 +123,10 @@ Page({
               console.log(item.userId + "   ======   " + that.data.myItem.userId);
             }            
           });
+          debugger;
           that.setData({
-            coresList: res.data.result
+            coresList: res.data.result,
+            curWater: that.data.myItem.score * 0.318
           });
         }
       },
@@ -147,12 +151,13 @@ Page({
     wx.request({
       url: api.getGiverInfo,
       data:{
-        userId:"123",
+        userId: app.globalData.openId,
         giveId:this.data.giveId
       },
       success: function(res){
        console.log("获取出题人信息成功！");
        console.log(res);
+       debugger;
        if(res.data.flag){
         that.setData({
           giverNickName: res.data.result.nickName,
@@ -167,11 +172,63 @@ Page({
       }
     })
   },
+   /**
+     * 偷看答案
+     */
+    seeAnswer: function () {
+      var component = this.selectComponent("#answercomponent");
+
+     
+    if (this.data.myItem.isBuy == 0) {
+
+      util.pay({
+        price: 1,
+        success: (res) => {
+          this.data.myItem.isBuy = 1;
+          this.setData({
+            _seeAnswer: !this.data._seeAnswer,
+            myItem: this.data.myItem
+          });
+          component.show();
+          this.updateDeal();
+          this.addOrder({
+            userId: app.globalData.openId,
+            orderId: res.outTradeNo,
+            title: "偷看答案",
+            price: 50,
+            primkey: this.data.item.vrId
+          });
+        }
+      });
+    } else {
+      component.show();
+    }
+
+  },
   /**
-   * 偷看答案
+   * 更新状态
    */
-  seeAnswer: function(){
-    var component = this.selectComponent("#answercomponent");
-    component.show();
+  updateDeal() {
+    wx.request({
+      url: api.updateDeal,
+      data: {
+        vrId: this.data.item.vrId,
+        isBuy: 1
+      }
+    })
+  },
+  /**
+   * 添加订单
+   */
+  addOrder(d) {
+    debugger;
+    wx.request({
+      url: api.addOrder,
+      data: d,
+      success: (res) => {
+        debugger;
+        console.log("添加订单成功！");
+      }
+    })
   }
 })

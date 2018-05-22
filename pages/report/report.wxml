@@ -3,7 +3,7 @@
   <view class='header'>
     <text class='title'>你和{{giverNickName}}的默契值</text>
     <view class='score-box'>
-      <text>{{myscore}}%</text>
+      <text>{{myItem.score}}%</text>
       <view class='water' style='height:{{curWater}}vw'></view>
     </view>
     <view class='menu'>

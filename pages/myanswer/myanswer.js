@@ -1,6 +1,7 @@
 // pages/myanswer/myanswer.js
 import util from '../../utils/util.js';
-import api from "../../utils/api.js"
+import api from "../../utils/api.js";
+var app = getApp();
 Component({
   /**
    * 组件的属性列表
@@ -112,20 +113,56 @@ Component({
          */
         seeAnswer: function(){
           if(this.data.isBuy == 0){
-            util.pay(100,()=>{
-              console.log("修改记录..............");
-              wx.request({
-                url: api.updateDeal,
-                data:{
-                  vrId: this.data.item.vrId,
+           
+            util.pay({
+              price: 1,
+              success: (res)=>{
+                this.setData({
+                  _seeAnswer: !this.data._seeAnswer,
                   isBuy: 1
-                }
-              })
+                });
+                this.updateDeal();
+                this.addOrder({
+                  userId: app.globalData.openId,
+                  orderId: res.outTradeNo,
+                  title: "偷看答案",
+                  price: 50,
+                  primkey: this.data.item.vrId
+                });
+              }
+            });
+          }else{
+            this.setData({
+              _seeAnswer: !this.data._seeAnswer
             });
           }
-          this.setData({
-            _seeAnswer: !this.data._seeAnswer
-          });
+         
+        },
+        /**
+         * 更新状态
+         */
+        updateDeal(){
+          wx.request({
+            url: api.updateDeal,
+            data: {
+              vrId: this.data.item.vrId,
+              isBuy: 1
+            }
+          })
+        },
+        /**
+         * 添加订单
+         */
+        addOrder(d){
+          debugger;
+          wx.request({
+            url: api.addOrder,
+            data:d,
+            success: (res)=>{
+              debugger;
+              console.log("添加订单成功！");
+            }
+          })
         }
   }
 

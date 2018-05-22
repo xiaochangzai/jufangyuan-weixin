@@ -1,15 +1,15 @@
 {
   "pages": [
     "pages/home/home",
-    "pages/report/report",
+    "pages/tip/tip",
+    "pages/poster/poster",
     "pages/test/test",
+    "pages/report/report",
     "pages/friendAnswer/friendAnswer",
     "pages/record/record",
-    "pages/poster/poster",
     "pages/answerRecord/answerRecord",
     "pages/myquestion/myquestion",
     "pages/question/question",
-    "pages/tip/tip",
     "pages/index/index",
     "pages/logs/logs"
   ],

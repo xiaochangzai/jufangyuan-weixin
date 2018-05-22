@@ -50,56 +50,67 @@ const getOrderId = ()=>{
   return randomNum(1000, 99999999999);
 }
 
-const pay = (num,fn) =>{
+const pay = (obj) =>{
+  debugger;
   wx.request({
-    url: api.pay,
+    url: api.xiadan,
     data: {
-      'openid': app.globalData.openId,
-      'title': "ot14n4yt0DOLBd_qrYmVbtvNpplU",
-      'did': "3wefr4terg54e4trgrtuy6hbtr6y",
-      'price': num
+      'openId': app.globalData.openId,
+      'title': "最佳死党大比拼偷看答案",
+      'price': obj.price
     },
     success: (res)=>{
-    
-      console.log(res.data)
-      console.log(res.data.timeStamp);
-      console.log(res.data.nonceStr);
-      console.log(res.data.package);
-      console.log(res.data.paySign);
-      if(fn){
-        fn();
-      }
-      wx.requestPayment({
-        timeStamp: res.data.timeStamp,
-        nonceStr: res.data.nonceStr,
-        package: res.data.package,
-        signType: 'MD5',
-        paySign: res.data.paySign,
-        success: (res)=>{
-          console.log("支付成功！");
-          console.log(res);
-          wx.showToast({
-            title: '支付成功',
-            icon: "success"
-          })
 
-          wx.showModal({
-            title: '支付成功啦！',
-            content: '成功！！！',
-          })
-        },
-        error: (res)=>{
-          wx.showToast({
-            title: '支付失败',
-            icon: "error"
-          })
-          console.log("支付失败！");
-        }
-      })
+      var prepay_id = res.data.prepay_id;
+      obj.outTradeNo = res.data.outTradeNo;
+      sign(prepay_id,obj);
     }
   })
 }
 
+
+function sign (prepay_id,obj) {
+
+  wx.request({
+    url: api.sign,
+    method: 'POST',
+    header: {
+      'content-type': 'application/x-www-form-urlencoded'
+    },
+    data: { 'repay_id': prepay_id },
+    success: function (res) {
+      requestPayment(res.data,obj);
+    }
+  })
+}
+//申请支付
+function requestPayment (obj,afterObj) {
+
+  wx.requestPayment({
+    'timeStamp': obj.timeStamp,
+    'nonceStr': obj.nonceStr,
+    'package': obj.package,
+    'signType': obj.signType,
+    'paySign': obj.paySign,
+    'success': function (res) {
+      debugger;
+        afterObj.success({
+          message: "ok",
+          state: 1,
+          outTradeNo: afterObj.outTradeNo
+        });
+    },
+    'fail': function (res) {
+      debugger;
+      if(afterObj.fail){
+        afterObj.fail({
+          message: "fail",
+          state: -1
+        });
+      }
+    }
+  })
+}
 module.exports = {
   formatTime: formatTime,
   formatNumber: formatNumber,

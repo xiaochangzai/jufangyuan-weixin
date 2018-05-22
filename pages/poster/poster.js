@@ -6,7 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    id: 40,
+    id: 68,
     codePath:"../../img/icon-code.png"
   },
 
@@ -14,8 +14,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log("--------------");
-    console.log(options);
     this.setData({
       id: options.id
     });
@@ -88,7 +86,7 @@ Page({
         id: this.data.id
       },
       success: (res)=>{
-        if(res.data.flag){
+        if(res.data.path){
           this.setData({
             codePath: "https://qaq.jfy108.net/resources/" + res.data.path
           });
@@ -146,7 +144,7 @@ Page({
    * 保存canvas图片
    */
   saveCanvas: function () {
-    // debugger;
+
     console.log("准备保存图片");
     wx.canvasToTempFilePath({
       canvasId: 'canvas',

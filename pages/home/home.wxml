@@ -14,14 +14,15 @@
         <text></text>
       </navigator>
       <view class='menu-item'>
-      <button open-type='contact'>
+      <button open-type='contact' class='lxkf'>
         <text>联系客服</text>
         <text></text>
         </button>
       </view>
-      <view class='menu-item'>
+      <navigator class='menu-item' url='../tip/tip'>
+        <text></text>
         <text>付费详情</text>
-      </view>
+      </navigator>
     </view>
   </view>
 </view>

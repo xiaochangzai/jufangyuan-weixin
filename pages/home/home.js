@@ -97,14 +97,16 @@ Page({
    * 上传用户信息
    */
   uploadUserInfo: function(){
+    debugger;
     wx.request({
       url: api.addUser,
       data:{
         nickName: this.data.userInfo.nickName,
-        headImg: this.data.userInfo.headImg,
+        headImg: this.data.userInfo.avatarUrl,
         userId: app.globalData.openId
       },
       success: function(res){
+        debugger;
         console.log("上传用户信息成功！");
         console.log(res);
       }
@@ -149,6 +151,7 @@ Page({
    */
   agree: function(res){
     var userInfo = res.detail.detail.userInfo;
+    console.log("========== 获取用户信息 =========");
     console.log(userInfo);
     this.setData({
       userInfo: userInfo
