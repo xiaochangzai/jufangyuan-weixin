@@ -1,5 +1,6 @@
 // pages/friendAnswer/friendAnswer.js
 import api from '../../utils/api.js';
+import util from '../../utils/util.js';
 var app = getApp();
 Page({
 
@@ -14,7 +15,7 @@ Page({
     currentIndex:0,
     currentQuestion:{},
     friendAnswer:[],
-    scrollTop: 0,
+    scrollTop: 10000,
     score: 0,
     friendAnswerStr:"",
     tempHide: false
@@ -24,20 +25,23 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log("进入好友回答");
-    console.log(options.id);
-    if(options.id){
+    util.login(()=>{
+      console.log("进入好友回答");
+      console.log(options.id);
+      if (options.id) {
         this.setData({
           queGiverVrId: options.id
         });
-    }
-    var scene = decodeURIComponent(options.scene);
-    if(scene != "undefined" &&  scene){
-      this.setData({
-        queGiverVrId: scene
-      });
-    }
-    this.getQuestions();
+      }
+      var scene = decodeURIComponent(options.scene);
+      if (scene != "undefined" && scene) {
+        this.setData({
+          queGiverVrId: scene
+        });
+      }
+      this.getQuestions();
+    });
+    
   },
 
   /**
@@ -154,10 +158,21 @@ Page({
    * 选择答案
    */
   slectAnswer: function(e){
+    // debugger;
     var that = this;
     this.setData({
       tempHide: true
     });
+
+    setTimeout(()=>{
+      this.setData({
+        currentIndex: this.data.currentIndex + 1,
+        currentQuestion: this.data.questions[this.data.currentIndex + 1]
+      });
+      this.setData({
+        tempHide: false
+      });
+    },700);
     var index = e.target.dataset.index;
     var title = this.data.currentQuestion.answerArr[index];
     this.data.friendAnswer.push({
@@ -193,25 +208,18 @@ Page({
         friendAnswer: this.data.friendAnswer
       });
 
-      this.setData({
-        currentIndex: this.data.currentIndex + 1,
-        currentQuestion: this.data.questions[this.data.currentIndex + 1]
-      });
-
-      this.setData({
-        tempHide: false
-      });
-    },1000);
+      // 滚动到最底部
+      wx.createSelectorQuery().select('.messages-box').boundingClientRect(function (rect) {
+        // 使页面滚动到底部
+        console.log(rect);
+        that.setData({
+          scrollTop: 10000
+        });
+      }).exec()
+    },100);
     
 
-    // 滚动到最底部
-    wx.createSelectorQuery().select('.messages-box').boundingClientRect(function (rect) {
-      // 使页面滚动到底部
-      console.log(rect);
-     that.setData({
-       scrollTop: 10000
-     });
-    }).exec()
+    
   },
   /**
    * 上传分数

@@ -1,5 +1,6 @@
 // pages/poster/poster.js
 import api from "../../utils/api.js";
+import util from "../../utils/util.js";
 Page({
 
   /**
@@ -17,6 +18,7 @@ Page({
     this.setData({
       id: options.id
     });
+    util.login();
     this.getWxCode();
   },
 
@@ -66,8 +68,6 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function (res) {
-    console.log("触发转发！");
-    console.log(res);
     return {
       title: "请接受组织对你的考验",
       path: "/pages/friendAnswer/friendAnswer?id=" + this.data.id
@@ -98,7 +98,7 @@ Page({
         console.log(res);
       },
       complete: ()=>{
-        wx.hideLoading();
+        // wx.hideLoading();
       }
     })
   },
@@ -118,6 +118,7 @@ Page({
 
       ctx.drawImage("../../img/finger-tit.png", 128, 337, 117, 16.5);
       ctx.draw();
+      wx.hideLoading();
     });
 
   },

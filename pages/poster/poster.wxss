@@ -63,3 +63,13 @@ canvas{
   background-color: #ffffff;
   /* display: none; */
 }
+.gohome{
+  width: 100vw;
+  height: 8.6vw;
+  text-align: center;
+  color: #005ad3;
+  font-size: 3.3vw;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}

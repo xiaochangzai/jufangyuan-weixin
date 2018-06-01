@@ -24,22 +24,25 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log("------ 报告 --------");
-    console.log(options);
-    var that = this;
-    this.setData({
-      giveId: options.id
-    });
-    setTimeout(function(){
-      
-    },2000);
-    this.setData({
-      curWater: 31.8*0.7
-    });
+    util.login(()=>{
+      console.log("------ 报告 --------");
+      console.log(options);
+      var that = this;
+      this.setData({
+        giveId: options.id
+      });
+      setTimeout(function () {
 
-    this.getCoresByGivId();
+      }, 2000);
+      this.setData({
+        curWater: 31.8 * 0.7
+      });
 
-    this.getQueGiverInfo();
+      this.getCoresByGivId();
+
+      this.getQueGiverInfo();
+    });
+    
   },
 
   /**
@@ -112,7 +115,6 @@ Page({
             item.title = that.getStrByScore(item.score);
             // 判断是不是自己
             if(item.userId == app.globalData.openId){
-              debugger;
               if(item.score > that.data.myItem.score){
                   that.setData({
                     myItem: item
@@ -123,7 +125,6 @@ Page({
               console.log(item.userId + "   ======   " + that.data.myItem.userId);
             }            
           });
-          debugger;
           that.setData({
             coresList: res.data.result,
             curWater: that.data.myItem.score * 0.318
@@ -221,12 +222,10 @@ Page({
    * 添加订单
    */
   addOrder(d) {
-    debugger;
     wx.request({
       url: api.addOrder,
       data: d,
       success: (res) => {
-        debugger;
         console.log("添加订单成功！");
       }
     })

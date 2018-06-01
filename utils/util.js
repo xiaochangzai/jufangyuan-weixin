@@ -55,7 +55,7 @@ const pay = (obj) =>{
   wx.request({
     url: api.xiadan,
     data: {
-      'openId': app.globalData.openId,
+      'openid': app.globalData.openId,
       'title': "最佳死党大比拼偷看答案",
       'price': obj.price
     },
@@ -111,9 +111,55 @@ function requestPayment (obj,afterObj) {
     }
   })
 }
+/**
+ * 获取open Id 
+ */
+function getOpenId(fn){
+  console.log("-------------- 获取openId-----------");
+  wx.request({
+    url: api.getUserOpenId,
+    data: {
+      code: app.globalData.code
+    },
+    success: (res) => {
+      console.log("获取用户openId成功！");
+      console.log(res);
+      var tempObj = JSON.parse(res.data.result);
+      app.globalData.openId = tempObj.openid;
+      if(fn){
+        fn();
+      }
+      // this.uploadUserInfo();
+    }
+  })
+}
+
+/**
+   * 登陆
+   */
+function login(fn){
+  // 登陆
+  console.log("---------------登陆------------");
+  if (app.globalData.openId) {
+    if(fn){
+      fn();
+    }
+  } else {
+    wx.login({
+      success: (res) => {
+        console.log(res);
+        app.globalData.code = res.code;
+        getOpenId(fn);
+      }
+    })
+  }
+
+}
+
 module.exports = {
   formatTime: formatTime,
   formatNumber: formatNumber,
   pay: pay,
-  getOrderId: getOrderId
+  getOrderId: getOrderId,
+  login: login
 }

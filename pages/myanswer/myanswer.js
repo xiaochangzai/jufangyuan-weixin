@@ -36,6 +36,7 @@ Component({
      * 获取我做的题
      */
         getMyAnswer: function () {
+          debugger;
           console.log(this.data.item.vrId);
           wx.showLoading({
             title: '加载中...'
@@ -55,12 +56,12 @@ Component({
                 // 出题者的答案
                 var giverAnswerArr = [];
                 res.data.result.givAnswers.split(",").forEach(function(item,index){
-                  giverAnswerArr.push(item.split(":")[0]);
+                  giverAnswerArr.push(item.split(":")[1]);
                 });
                 // 我的答案
                 var myAnswerArr = [];
                 res.data.result.answers.split(",").forEach(function(item,index){
-                  myAnswerArr.push(item.split(":")[0]);
+                  myAnswerArr.push(item.split(":")[1]);
                 });
                 res.data.questions.forEach(function(item,index){
 
@@ -113,9 +114,8 @@ Component({
          */
         seeAnswer: function(){
           if(this.data.isBuy == 0){
-           
             util.pay({
-              price: 1,
+              price: 50,
               success: (res)=>{
                 this.setData({
                   _seeAnswer: !this.data._seeAnswer,
@@ -154,12 +154,10 @@ Component({
          * 添加订单
          */
         addOrder(d){
-          debugger;
           wx.request({
             url: api.addOrder,
             data:d,
             success: (res)=>{
-              debugger;
               console.log("添加订单成功！");
             }
           })

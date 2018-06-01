@@ -1,5 +1,6 @@
 // pages/answerRecord/answerRecord.js
-import api from "../../utils/api.js"
+import api from "../../utils/api.js";
+import util from "../../utils/util.js";
 var app = getApp();
 Page({
 
@@ -18,7 +19,10 @@ Page({
     this.setData({
       userId: app.globalData.openId
     });
-    this.getQuestions();
+    util.login(()=>{
+      this.getQuestions();
+    });
+    
   },
 
   /**
@@ -76,7 +80,7 @@ Page({
     wx.request({
       url: api.getDealByUser,
       data:{
-        userId: this.data.userId
+        userId: app.globalData.openId
       },
       success: (res)=>{
         console.log("获得我做过的题目成功！");

@@ -35,6 +35,7 @@ Component({
      * 获取我做的题
      */
     getMyAnswer: function () {
+      debugger;
       console.log(this.data.item.vrId);
       wx.showLoading({
         title: '加载中...'
@@ -91,6 +92,7 @@ Component({
      * 显示
      */
     show: function () {
+      debugger;
       if (!this.data._isLoaded) {
         this.getMyAnswer();
       }

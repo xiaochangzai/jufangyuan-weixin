@@ -11,4 +11,5 @@
   <canvas  canvas-id="canvas"></canvas>
   <button class='invite' open-type="share">邀请好友答题</button>
   <button class='saveport' bindtap='saveCanvas'>保存海报</button>
+  <navigator class='gohome' url='../home/home'>返回首页</navigator>
 </view>

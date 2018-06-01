@@ -1,12 +1,13 @@
 // pages/record/record.js
 import api from '../../utils/api.js';
+import util from "../../utils/util.js";
+var app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    userId:"12345689",
     recordsList:[]
   },
 
@@ -14,7 +15,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getRecords();
+    util.login(()=>{
+      this.getRecords();
+    });
+    
   },
 
   /**
@@ -75,7 +79,7 @@ Page({
     wx.request({
       url: api.getGiverListByUser,
       data: {
-        userId: this.data.userId
+        userId: app.globalData.openId
       },
       success: (res)=>{
         console.log("获取出题记录成功!");
@@ -89,7 +93,6 @@ Page({
       complete: ()=>{
         wx.hideLoading();
       }
-
     })
   }
 })

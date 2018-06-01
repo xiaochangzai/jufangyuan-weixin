@@ -1,5 +1,6 @@
 // pages/myquestion/myqiestion.js
-import api from "../../utils/api.js"
+import api from "../../utils/api.js";
+import util from "../../utils/util.js";
 Page({
 
   /**
@@ -14,8 +15,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options);
-    this.getQuestions();
+    util.login(()=>{
+      this.getQuestions();
+    });
   },
 
   /**

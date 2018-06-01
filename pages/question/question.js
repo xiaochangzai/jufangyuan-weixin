@@ -1,5 +1,6 @@
 // pages/question/question.js
 import api from '../../utils/api.js';
+import util from "../../utils/util.js";
 var app = getApp();
 Page({
 
@@ -13,7 +14,6 @@ Page({
       title:"",
       answers:"",
       answerList:[]
-
     },
     answerList:[]
   },
@@ -22,7 +22,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getQuestionsAll();
+    util.login(()=>{
+      this.getQuestionsAll();
+    });
+    
   },
 
   /**
